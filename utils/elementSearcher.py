@@ -34,6 +34,9 @@ def findElements(key: str, searcher: WebElement | WebDriver):
     # Finally search for the element
     return searcher.find_elements(searchType, config[key]['value'])
 
+def getElement(type:By, value:str):
+    ""
+
 def typeStrToType(type: str):
     match type:
         case 'ID': return By.ID # Find element by ID

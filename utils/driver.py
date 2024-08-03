@@ -1,4 +1,5 @@
 from selenium import webdriver
+from config import getConfig
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 from webdriver_manager.core.utils import read_version_from_cmd
@@ -21,3 +22,7 @@ def loadDriver(browserLaunchOptions):
 
     # Finally load driver with options
     return webdriver.Chrome(service=driver_service, options=driver_options)
+
+
+if __name__ == "__main__":
+    loadDriver(getConfig("main"))
