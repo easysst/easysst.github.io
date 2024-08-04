@@ -1,0 +1,32 @@
+{
+    "epicgames": {
+        "url": "https://status.epicgames.com/",
+        "targets": {
+            "fn": {
+                "name": "Fortnite",
+                "status": false,
+                "row-level": 1
+            },
+            "rl": {
+                "name": "Rocket League",
+                "status": false,
+                "row-level": 5
+            },
+            "fg": {
+                "name": "Fall Guys",
+                "status": false,
+                "row-level": 4
+            },
+            "egs": {
+                "name": "Epic Games Store",
+                "status": false,
+                "row-level": 8
+            },
+            "eos": {
+                "name": "Epic Online Services",
+                "status": false,
+                "row-level": 9
+            }
+        }
+    }
+}

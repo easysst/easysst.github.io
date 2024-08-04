@@ -1,29 +1,49 @@
+import sys
 import time
-from webdriver_manager.core.os_manager import ChromeType
 from selenium.webdriver.common.by import By
 
 from utils.driver import load_driver
-from utils.config import get_config
+from utils.config import get_config, save_config
 
-# Example
-def fn_scrape():
-    # Get config
-    config = get_config("main")
+template = {}
+driver = None
 
-    # Load driver
-    # driver = load_driver(config['browserLaunchOptions'], True) # Used only in local machine for easier testing
-    driver = load_driver(config['browserLaunchOptions']) 
-
-    # Let's go to epic games server statuses and wait until page loads
-    #TODO: instead of waiting for time, let code only continue if page loaded for e.g.
-    driver.get("https://status.epicgames.com/")
-    time.sleep(1)
-
-    # Let's grab fortnite's status using xpath
-    fn_status_element = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]")
+def setup():
+    global template
+    global driver
     
-    # Print the results
-    print("Fortnite server status: "+fn_status_element.text)
+    # Load configs
+    main_config = get_config("main")
+    template = get_config("template")
+
+    # Check if we skip driver installation
+    skip_driver_installation = True
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "1":
+            skip_driver_installation = False
+
+    # Load Driver
+    driver = load_driver(main_config['browserLaunchOptions'], skip_driver_installation)
+
+
+def scrape_epic():
+    eg = template['epicgames']
+    targets = eg['targets']
+
+    driver.get(eg['url'])
+    time.sleep(1) # Wait until loaded!
+    
+    for target in targets:
+        el = driver.find_element(By.XPATH, f"/html/body/div[1]/div[2]/div[2]/div[1]/div[{targets[target]['row-level']}]/div[1]/span[2]")
+        targets[target]['status'] = el.text == "Operational"
+
+
+def scrape():
+    scrape_epic()
+
+    # Save to out file
+    save_config("out", template)
 
 if __name__ == "__main__":
-    fn_scrape()
+    setup()
+    scrape()
