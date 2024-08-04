@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Page Title Goes Here</title>
-    <meta name="description" content="Description Goes Here" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server Status Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .draggable {
+        cursor: grab;
+      }
+      .draggable:active {
+        cursor: grabbing;
+      }
+      .droppable {
+        border: 2px dashed #bbb;
+      }
+    </style>
   </head>
-  <body>
-    Hey!
+  <body class="bg-gray-100 p-6">
+    <div class="container mx-auto">
+      <h1 class="text-2xl font-bold mb-4">Easysst</h1>
+      <!-- TODO:Sooner or Later i'll add favorites -->
+      <!-- <div class="mb-4">
+        <h2 class="text-xl font-semibold">Favorites</h2>
+        <div
+          id="favorites"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-white shadow-md rounded-lg min-h-[200px] droppable"></div>
+      </div> -->
+      <div>
+        <h2 class="text-xl font-semibold">All Servers</h2>
+        <div
+          id="server-list"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-white shadow-md rounded-lg">
+          <!-- TEMPLATE -->
+          <div
+            id="template"
+            class="card bg-white p-4 rounded-lg shadow-md hidden"
+            draggable="true">
+            <h3 class="text-lg font-bold">Server 1</h3>
+            <div class="icon mb-2">
+              <img
+                src="https://via.placeholder.com/50"
+                alt="Server 1 Icon"
+                class="mx-auto" />
+            </div>
+            <p class="status text-green-500">Online</p>
+          </div>
+          <!-- TEMPLATE -->
+        </div>
+      </div>
+    </div>
     <script src="js/index.js"></script>
   </body>
 </html>
