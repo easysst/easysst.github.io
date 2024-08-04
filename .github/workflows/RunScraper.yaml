@@ -1,6 +1,6 @@
 name: RunScraper
-on:
-  workflow_dispatch:
+# on:
+#   workflow_dispatch:
 jobs:
   runAllTests:
     runs-on: ubuntu-latest
