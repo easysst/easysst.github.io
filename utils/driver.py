@@ -11,7 +11,7 @@ EXECUTABLE_PATTERN = {
     ChromeType.CHROMIUM: "chromium"
 }
 
-def load_driver(browser_launch_options, skip_driver_installation = False, chrome_type = ChromeType.CHROMIUM):    
+def load_driver(browser_launch_options, skip_driver_installation = False, chrome_type = ChromeType.GOOGLE):    
     # Load driver options
     driver_options = Options()
     for option in browser_launch_options:

@@ -11,7 +11,7 @@ def fn_scrape():
     config = get_config("main")
 
     # Load driver
-    # driver = load_driver(config['browserLaunchOptions'], True, ChromeType.GOOGLE) # Used only in local machine for easier testing
+    # driver = load_driver(config['browserLaunchOptions'], True) # Used only in local machine for easier testing
     driver = load_driver(config['browserLaunchOptions']) 
 
     # Let's go to epic games server statuses and wait until page loads
@@ -23,7 +23,7 @@ def fn_scrape():
     fn_status_element = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[2]")
     
     # Print the results
-    print(fn_status_element.text)
+    print("Fortnite server status: "+fn_status_element.text)
 
 if __name__ == "__main__":
     fn_scrape()
