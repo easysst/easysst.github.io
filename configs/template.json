@@ -1,5 +1,6 @@
 {
     "epicgames": {
+        "name": "Epic Games",
         "url": "https://status.epicgames.com/",
         "targets": {
             "fn": {
