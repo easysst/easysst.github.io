@@ -19,3 +19,5 @@ jobs:
         run: python scrape.py 1
       - name: Deploy
         uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Status Update
