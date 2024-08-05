@@ -2,15 +2,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 const card = document.getElementById("template")
 const parent = document.getElementById("server-list")
     const status = await (await fetch("https://raw.githubusercontent.com/easysst/easysst.github.io/main/configs/out.json")).json()
+
+    // Last updated
+    const lastUpdated = new Date(status.lastUpdated * 1000).toLocaleTimeString()
+    console.log(lastUpdated)
+
+    // Epic Games
     const eg = status.epicgames
-    
     for (const [key, value] of Object.entries(eg.targets)){
-        console.log(value)
         addCard(value.name, value.status, "public/img/"+key+".webp", eg.url)
     }
-
-
-
     function addCard(name, status, icon, url){
         clone = card.cloneNode(true)
 
