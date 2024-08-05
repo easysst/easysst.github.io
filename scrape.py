@@ -41,6 +41,9 @@ def scrape_epic():
 def scrape():
     scrape_epic()
 
+    # Get save time
+    template['last-updated'] = int(time.time())
+
     # Save to out file
     save_config("out", template)
 
