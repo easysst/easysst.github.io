@@ -1,0 +1,19 @@
+name: UpdateStatus
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  updateStatus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10.12'
+      - name: Install all necessary packages from requirements.txt
+        run: pip install -r requirements.txt
+      - name: Run the scraper...
+        run: python scrape.py 1
