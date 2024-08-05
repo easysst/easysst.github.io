@@ -1,7 +1,5 @@
 name: UpdateStatus
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 jobs:
   updateStatus:
@@ -17,3 +15,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run the scraper...
         run: python scrape.py 1
+      - name: Deploy
+      - uses: stefanzweifel/git-auto-commit-action@v4
