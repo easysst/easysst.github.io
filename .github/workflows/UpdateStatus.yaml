@@ -2,7 +2,7 @@ name: UpdateStatus
 on:
   workflow_dispatch:
 jobs:
-  updateStatus:
+  UpdateStatus:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
@@ -16,4 +16,4 @@ jobs:
       - name: Run the scraper...
         run: python scrape.py 1
       - name: Deploy
-      - uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v4
