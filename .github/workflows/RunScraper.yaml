@@ -1,9 +1,8 @@
-
 name: RunScraper
 on:
   workflow_dispatch:
 jobs:
-  runAllTests:
+  runScraper:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
@@ -15,4 +14,4 @@ jobs:
       - name: Install all necessary packages from requirements.txt
         run: pip install -r requirements.txt
       - name: Run the scraper...
-        run: python scrape.py
+        run: python scrape.py 1
