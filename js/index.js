@@ -1,5 +1,3 @@
-console.log("HELLO!")
-
 document.addEventListener("DOMContentLoaded", async () => {
 const card = document.getElementById("template")
 const parent = document.getElementById("server-list")
@@ -8,12 +6,12 @@ const parent = document.getElementById("server-list")
     
     for (const [key, value] of Object.entries(eg.targets)){
         console.log(value)
-        addCard(value.name, value.status)
+        addCard(value.name, value.status, "public/img/"+key+".webp", eg.url)
     }
 
 
 
-    function addCard(name, status, icon){
+    function addCard(name, status, icon, url){
         clone = card.cloneNode(true)
 
         clone.getElementsByTagName("h3")[0].innerHTML = name
@@ -21,7 +19,9 @@ const parent = document.getElementById("server-list")
         statusElement.classList.add(status ? "text-green-500" :"text-red-500")
         statusElement.innerHTML = status ? "Online" : "Offline"
         clone.getElementsByTagName("img")[0].setAttribute("src", icon)
+        clone.getElementsByTagName("a")[0].setAttribute("href", url)
         
+
         clone.classList.remove("hidden")
         parent.appendChild(clone)
     }

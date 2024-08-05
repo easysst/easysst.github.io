@@ -31,20 +31,24 @@
         <h2 class="text-xl font-semibold">All Servers</h2>
         <div
           id="server-list"
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-white shadow-md rounded-lg">
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 p-4 bg-white shadow-md rounded-lg">
           <!-- TEMPLATE -->
           <div
             id="template"
-            class="card bg-white p-4 rounded-lg shadow-md hidden"
+            class="hidden card bg-white p-4 rounded-lg shadow-md w-48 h-48"
             draggable="true">
-            <h3 class="text-lg font-bold">Server 1</h3>
-            <div class="icon mb-2">
-              <img
+            <a href="" target="_blank">
+              <div class="icon mb-2">
+                <img
                 src="https://via.placeholder.com/50"
                 alt="Server 1 Icon"
+                width="100"
+                height="100"
                 class="mx-auto" />
-            </div>
-            <p class="status text-green-500">Online</p>
+              </div>
+              <h3 class="text-lg font-bold h-min">Server 1</h3>
+              <p class="status text-green-500 h-min">Online</p>
+            </a>
           </div>
           <!-- TEMPLATE -->
         </div>
