@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", async () => {
 const card = document.getElementById("template")
 const parent = document.getElementById("server-list")
-    const status = await (await fetch("https://raw.githubusercontent.com/easysst/easysst.github.io/main/configs/out.json")).json()
+    const status = await (await fetch("https://raw.githubusercontent.com/easysst/easysst.github.io/main/configs/out.json", {cache: "no-store"})).json()
 
     // Last updated
-    const lastUpdated = new Date(status.lastUpdated * 1000).toLocaleTimeString()
-    console.log(lastUpdated)
+    const lastUpdated = new Date(status["last-updated"] * 1000).toLocaleTimeString()
+    document.getElementById("last-updated").innerHTML = lastUpdated
 
     // Epic Games
     const eg = status.epicgames
